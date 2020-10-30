@@ -13,11 +13,21 @@ public class player : MonoBehaviour
     public int points = 0;
     public Text counter, finishLabel;
 
+    [Header("Ui Manager")]
+    public Menu menu;
+    public int oroActual, oroASumar;
+
     void Start()
     {
         swipe_script = GetComponent<swipe>();
         move_script = GetComponentInParent<movimiento>();
         Time.timeScale = 2f;
+    }
+
+    public void AddGold()
+    {
+        oroActual += oroASumar;
+        menu.SetGold(oroActual);
     }
 
     // Update is called once per frame
@@ -39,8 +49,9 @@ public class player : MonoBehaviour
     {
         if (col.gameObject.tag == "Finish")
         {
-            
+            AddGold();
             finishScreen.SetActive(true);
+            menu.MostrarTienda();
             finishLabel.text = "Ganaste\n Obtubiste " + points + " puntos";
             swipe_script.enabled = false;
             Time.timeScale = 1f;
