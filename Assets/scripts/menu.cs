@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Menu : MonoBehaviour
+public class menu : MonoBehaviour
 {
     public GameObject loseScreen, finishScreen;
 
@@ -14,10 +14,10 @@ public class Menu : MonoBehaviour
     [Header("Gold UI")]
     public Text goldText;
 
-    private void Start()
-    {
-        tiendaUi.SetActive(false);
-    }
+    //private void Start()
+    //{
+    //    tiendaUi.SetActive(false);
+    //}
 
     public void SetGold(int gold)
     {
@@ -31,8 +31,6 @@ public class Menu : MonoBehaviour
 
     public void Retry()
     {
-        //loseScreen.SetActive(false);
-        //finisgScreen.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
