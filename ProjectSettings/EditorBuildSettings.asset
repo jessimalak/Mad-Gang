@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/trabajo muestra.unity
+    path: Assets/Scenes/trabajo muestra.unity
     guid: a794f0a402265c946969045fbf541ff6
   m_configObjects: {}
