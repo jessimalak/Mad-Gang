@@ -46,7 +46,7 @@ public class player : MonoBehaviour
     {
         if (col.gameObject.tag == "Finish")
         {
-            
+            PlayerPrefs.SetInt("losePoints", 0);
             finishScreen.SetActive(true);
             finishLabel.text = "Ganaste\n Obtuviste " + points + " puntos";
             swipe_script.enabled = false;
@@ -60,6 +60,7 @@ public class player : MonoBehaviour
         if (col.gameObject.tag == "Obstaculo")
         {
             if(!isTurning){
+                PlayerPrefs.SetInt("losePoints", losePoints);
                 int puntos = losePoints * -1;
                 deadLabel.text = "Chocaste\nPerdiste " + puntos + " puntos"; 
                 loseScreen.SetActive(true);
@@ -67,7 +68,7 @@ public class player : MonoBehaviour
                 move_script.enabled = false;
                 Time.timeScale = 1f;
                 StartCoroutine(ShowBackground());
-                PlayerPrefs.SetInt("losePoints", losePoints);
+                
             }
             
         }
