@@ -13,6 +13,8 @@ public class movimiento : MonoBehaviour
     [SerializeField]
     private bool isPlayer = false;
     private int direct = 1;
+    [SerializeField]
+    private float velocidadGiro = 0.2f;
     void Start()
     {
         if (isPlayer)
@@ -30,7 +32,7 @@ public class movimiento : MonoBehaviour
  
     void Update()
     { 
-        transform.rotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, angle, 0), 0.2f);
+        transform.rotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, angle, 0), velocidadGiro * Time.deltaTime);
         if (isPlayer)
         {
             if(transform.localRotation.eulerAngles.y > angle - 1 && transform.localRotation.eulerAngles.y < angle + 1)

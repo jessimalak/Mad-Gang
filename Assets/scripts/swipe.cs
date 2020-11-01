@@ -30,7 +30,7 @@ public class swipe : MonoBehaviour
         {
             posX2 = Input.mousePosition.x;
             distance = posX1 - posX2;
-            if (posX1 < posX2 && distance < -55)
+            if (posX1 < posX2 && distance < -75)
         {
            
             direction = 1;
@@ -43,7 +43,7 @@ public class swipe : MonoBehaviour
                 position = 0;
             }
         }
-        else if(posX1 > posX2 && distance > 55)
+        else if(posX1 > posX2 && distance > 75)
         {
            
             direction = -1;

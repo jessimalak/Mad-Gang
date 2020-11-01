@@ -41,7 +41,7 @@ public class player : MonoBehaviour
         {
             
             finishScreen.SetActive(true);
-            finishLabel.text = "Ganaste\n Obtubiste " + points + " puntos";
+            finishLabel.text = "Ganaste\n Obtuviste " + points + " puntos";
             swipe_script.enabled = false;
             Time.timeScale = 1f;
             StartCoroutine(ShowBackground());
