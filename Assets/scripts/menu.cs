@@ -14,10 +14,10 @@ public class menu : MonoBehaviour
     [Header("Gold UI")]
     public Text goldText;
 
-    //private void Start()
-    //{
-    //    tiendaUi.SetActive(false);
-    //}
+    private void Start()
+    {
+        tiendaUi.SetActive(false);
+    }
 
     public void SetGold(int gold)
     {

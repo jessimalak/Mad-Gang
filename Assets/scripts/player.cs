@@ -20,6 +20,9 @@ public class player : MonoBehaviour
     [SerializeField]
     private adManager manager;
     private bool loadedAd = false;
+    [Header("Ui Manager")]
+    public menu menu;
+    public int oroActual, oroASumar;
 
     void Start()
     {
@@ -29,7 +32,11 @@ public class player : MonoBehaviour
         points = PlayerPrefs.GetInt("losePoints");
         Debug.Log(PlayerPrefs.GetInt("random"));
     }
-
+    public void AddGold()
+    {
+        oroActual += oroASumar;
+        menu.SetGold(oroActual);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -56,13 +63,13 @@ public class player : MonoBehaviour
 
        
     }
-
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Finish")
         {
             PlayerPrefs.SetInt("losePoints", 0);
             finishScreen.SetActive(true);
+            menu.MostrarTienda();
             finishLabel.text = "Ganaste\n Obtuviste " + points + " puntos";
             swipe_script.enabled = false;
             Time.timeScale = 1f;
@@ -90,7 +97,6 @@ public class player : MonoBehaviour
             
         }
     }
-
     IEnumerator ShowBackground()
     {
         yield return new WaitForSeconds(3);
