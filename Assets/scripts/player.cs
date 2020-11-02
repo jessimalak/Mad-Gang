@@ -6,14 +6,20 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
-    public GameObject loseScreen, finishScreen;
-    public Image background;
-    private swipe swipe_script;
-    private movimiento move_script;
     public bool isTurning = false;
     public int points = 0;
+    private swipe swipe_script;
+    private movimiento move_script;
     private int losePoints = 0;
-    public Text counter, finishLabel, deadLabel;
+    
+    [Header("UI")]
+    public Image background;
+    public GameObject loseScreen, finishScreen, rewardButton;
+    public Text counter, finishLabel, deadLabel, rewardText;
+    [Header("Ads")]
+    [SerializeField]
+    private adManager manager;
+    private bool loadedAd = false;
 
     void Start()
     {
@@ -21,6 +27,7 @@ public class player : MonoBehaviour
         move_script = GetComponentInParent<movimiento>();
         Time.timeScale = 2f;
         points = PlayerPrefs.GetInt("losePoints");
+        Debug.Log(PlayerPrefs.GetInt("random"));
     }
 
     // Update is called once per frame
@@ -39,7 +46,15 @@ public class player : MonoBehaviour
         if(points > 0)
         {
             losePoints = (points / 3) * -1;
+        if (!loadedAd)
+            {
+                manager.RequestReward();
+                rewardButton.SetActive(true);
+                loadedAd = true;
+            }
         }
+
+       
     }
 
     void OnTriggerEnter(Collider col)
@@ -62,7 +77,9 @@ public class player : MonoBehaviour
             if(!isTurning){
                 PlayerPrefs.SetInt("losePoints", losePoints);
                 int puntos = losePoints * -1;
-                deadLabel.text = "Chocaste\nPerdiste " + puntos + " puntos"; 
+                deadLabel.text = "Chocaste\nPerdiste " + puntos + " puntos";
+                int recuperables = puntos / 2;
+                rewardText.text = "Recuperar " + recuperables + " puntos";
                 loseScreen.SetActive(true);
                 swipe_script.enabled = false;
                 move_script.enabled = false;
