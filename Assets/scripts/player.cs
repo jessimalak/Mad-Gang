@@ -20,7 +20,7 @@ public class player : MonoBehaviour
     [SerializeField]
     private adManager manager;
     private bool loadedAd = false;
-    [Header("Ui Manager")]
+    [Header("UI Manager")]
     public menu menu;
     public int oroActual, oroASumar;
 
@@ -92,9 +92,7 @@ public class player : MonoBehaviour
                 move_script.enabled = false;
                 Time.timeScale = 1f;
                 StartCoroutine(ShowBackground());
-                
             }
-            
         }
     }
     IEnumerator ShowBackground()
