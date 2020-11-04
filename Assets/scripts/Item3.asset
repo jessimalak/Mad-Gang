@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b2c5797c8b42c429ae283ebb1153dd, type: 3}
   m_Name: Item3
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 7edc115773e596545bd20709ccf1842d, type: 3}
+  sprite: {fileID: 21300000, guid: a126c4f089ce131459371f21d948ed72, type: 3}
   valor: 10
   color: {r: 0, g: 0, b: 0, a: 0}
