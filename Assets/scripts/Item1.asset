@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Item1
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: edbf8cb69f6c3fb44b74b76e53cf8286, type: 3}
-  valor: 10
+  valor: 100
   color: {r: 0, g: 0, b: 0, a: 0}

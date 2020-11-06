@@ -10,8 +10,21 @@ public class Item : MonoBehaviour
     public Image itemImage;
     public int value;
 
+    void Start()
+    {
+        itemButton.onClick.AddListener(BuyItem);
+    }
     public void BuyItem()
     {
-        //if()
+        var player = GameObject.FindObjectOfType<player>();
+        if (player.oroActual >= value)
+        {
+          Destroy(gameObject);
+          player.oroActual -= value;
+        }
+        else
+        {
+            Debug.Log("no tienes suficiente dinero!");
+        }
     }
 }

@@ -23,6 +23,7 @@ public class tienda : MonoBehaviour
         {
             Item shopItem = Instantiate(prefabitems, contenedor).transform.GetComponent<Item>();
             shopItem.itemImage.sprite = item.sprite;
+            shopItem.value = item.valor;
         }
     }
 }

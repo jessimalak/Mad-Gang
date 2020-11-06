@@ -73,6 +73,7 @@ public class player : MonoBehaviour
             finishLabel.text = "Ganaste\n Obtuviste " + points + " puntos";
             swipe_script.enabled = false;
             Time.timeScale = 1f;
+            AddGold();
             StartCoroutine(ShowBackground());
         }
     }
