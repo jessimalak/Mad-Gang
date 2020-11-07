@@ -28,6 +28,18 @@ public class menu : MonoBehaviour
     {
         tiendaUi.SetActive(true);
     }
+    public void OcultarTienda()
+    {
+        tiendaUi.SetActive(false);
+    }
+    public void OcultarFinish()
+    {
+        finishScreen.SetActive(false);
+    }
+    public void MostrarFinish()
+    {
+        finishScreen.SetActive(true);
+    }
 
     public void Retry()
     {
